@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>验证码</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .img {
+            width: 100px;
+            height: 30px;
+            background-color: aquamarine;
+            display: inline-block;
+        }
+        
+        .text {
+            text-decoration: underline;
+            color: blue;
+            font-style: oblique;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="code">
+        <div class="img">asdfgh4</div>
+        <span class="changeText">看不清？换一张
+
+        </span>
+    </div>
+    <div>
+        <input type="text">
+        <button id="verify">验证码</button>
+    </div>
+    <button id="submit">提交按钮</button>
+
+</body>
+<script>
+    const getCode = () => {
+        const arr = [];
+        let str = '';
+        //随机数范围0-9 a-f
+        for (let i = 0; i < 10; i++) {
+            arr.push(i)
+        }
+        const arr1 = arr.concat(['a', 'b', 'c', 'd', 'e', 'f'])
+        console.log(arr1);
+        for (let i = 0; i < 6; i++) {
+            const num = Math.floor(Math.random() * ((15 - 0) + 0));
+            console.log(num)
+            str += arr1[num]
+        }
+        return str
+
+    }
+    const setCodeText = () => {
+        const a = document.getElementsByClassName('img')[0]
+        a.innerHTML = getCode()
+    }
+    window.onload = () => {
+        setCodeText()
+    }
+    const changeText = document.getElementsByClassName('changeText')[0];
+    changeText.onclick = () => {
+        setCodeText()
+    }
+    const verifyBtn = document.getElementById('verify');
+    verifyBtn.onclick = () => {
+        let time = 10
+        const timer = setInterval(() => {
+            verifyBtn.innerHTML = time
+
+            if (!time) {
+                clearInterval(timer)
+            }
+            time--
+        }, 1000)
+        setCodeText()
+    }
+    const submit = document.getElementById('submit');
+    submit.onclick = () => {
+        const inputValue = document.getElementsByTagName('input')[0].value;
+        const verifyValue = document.getElementsByClassName('img')[0].innerHTML;
+        if (inputValue.toLocaleLowerCase() === verifyValue.toLocaleLowerCase()) {
+            alert('验证通过')
+            return
+        }
+        alert('请输入正确验证码')
+    }
+</script>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选中图片放大</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .smallImg img {
+            width: 100px;
+            height: 100px;
+            /* display: inline-block; */
+            /* vertical-align: middle; */
+        }
+        
+        .bigImg,
+        .smallImg {
+            border: 1px solid red;
+            font-size: 0px;
+            /* padding: 10px; */
+            width: 600px;
+            margin: auto;
+            display: flex;
+        }
+        
+        .bigImg img {
+            width: 400px;
+            height: 400px;
+        }
+        
+        img {
+            /* vertical-align: middle;
+            text-align: center; */
+        }
+    </style>
+</head>
+
+<body>
+    &#9760;
+    <div class="bigImg">
+        <img src="./01.webp" alt="图片1" class="src">
+    </div>
+    <div class="smallImg">
+        <img src="./01.webp" alt="图片1">
+        <img src="./02.webp" alt="图片2">
+        <img src="./03.webp" alt="图片3">
+        <img src="./04.webp" alt="图片4">
+    </div>
+</body>
+<script>
+    console.log('\u2620')
+    const imgs = document.getElementsByTagName('img')
+    const taskImg = imgs[0].src
+    for (let i = 1; i < imgs.length; i++) {
+        const element = imgs[i];
+        element.onmouseover = function() {
+            imgs[0].src = element.src
+            element.border = '1px solid yellow'
+        }
+        element.onmouseout = function() {
+            imgs[0].src = taskImg
+            element.border = 'none'
+        }
+
+    }
+</script>
+
+</html>

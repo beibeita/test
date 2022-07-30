@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全选全不选反选案例</title>
+    <style>
+        * {
+            margin: 0;
+            padding: auto;
+        }
+        
+        input {
+            width: 200px;
+            height: 30px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="checkbox" value="11111111">11111111
+        <input type="checkbox" value="22222222">22222222
+        <input type="checkbox" value="33333333">33333333
+        <input type="checkbox" value="44444444">44444444
+        <input type="checkbox" value="55555555">55555555
+    </div>
+    <div>
+        <button onclick="fn(0)">全选</button>
+        <button onclick="fn(1)">全不选</button>
+        <button onclick="fn(2)">反选</button>
+    </div>
+</body>
+<script>
+    const inputs = document.getElementsByTagName('input');
+    // const btns = document.getElementsByTagName('button');
+    // btns[0].onclick = () => {
+    //     for (const input of inputs) {
+    //         input.checked = true
+    //     }
+    // }
+    // btns[1].onclick = () => {
+    //     for (const input of inputs) {
+    //         input.checked = false
+    //     }
+    // }
+    // btns[2].onclick = () => {
+    //     for (const input of inputs) {
+    //         input.checked = !input.checked
+    //     }
+    // }
+    const fn = (type) => {
+        for (const input of inputs) {
+            switch (type) {
+                case 0:
+                    input.checked = true
+                    break;
+                case 1:
+                    input.checked = false
+                    break;
+                case 2:
+                    input.checked = !input.checked
+                    break;
+
+                default:
+                    break;
+            }
+
+        }
+
+    }
+</script>
+
+
+</html>

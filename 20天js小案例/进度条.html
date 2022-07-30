@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>进度条</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .progress {
+            width: 400px;
+            height: 40px;
+            border-radius: 5%;
+            border: 1px solid red;
+        }
+        
+        .progress div {
+            background-color: brown;
+            width: 0px;
+            height: 40px;
+            /* border-radius: 5%; */
+            /* text-align: center; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress">
+        <div></div>
+    </div>
+    <button>点击11111111</button>
+</body>
+<script>
+    const progressDiv = document.getElementsByClassName('progress')[0].children[0]
+    window.onload = () => {
+        
+        let w = 10
+        
+        const timer = setInterval(() => {
+            w += 10
+            progressDiv.style.width = `${w}px`
+            progressDiv.innerHTML = `${Math.ceil(w / 400 * 100)}%`
+            if (parseInt(progressDiv.style.width) == 400) {
+                clearInterval(timer)
+            }
+        }, 100)
+    }
+</script>
+
+</html>

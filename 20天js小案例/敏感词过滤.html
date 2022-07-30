@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>敏感词过滤</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .btn {
+            display: block;
+            width: 100px;
+            height: 30px;
+        }
+        
+        .text {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>敏感词过滤</h2>
+    <textarea name="" id="input" cols="30" rows="10"></textarea>
+    <button class="btn">发布</button>
+    <div class="text" id="show"></div>
+</body>
+<script>
+    const inputValue = document.getElementById('input')
+    const show = document.getElementById('show')
+    const btn = document.getElementsByTagName('button')[0]
+    const reg = /宝爸|妈妈/g
+    btn.onclick = () => {
+        const result = inputValue.value.replace(reg, '*')
+        show.innerHTML = result
+    }
+</script>
+
+
+</html>

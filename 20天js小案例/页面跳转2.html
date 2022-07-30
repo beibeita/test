@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳转页面2</title>
+</head>
+
+<body>
+    <p>
+        <span>10</span>
+    </p>
+    <button>回到首页</button>
+</body>
+<script>
+    window.onload = function() {
+        let time = 10
+        const t = setInterval(() => {
+            time--;
+            document.getElementsByTagName('span')[0].innerText = time
+            if (!time) {
+                clearInterval(t)
+                location.href = './00js.html'
+            }
+        }, 1000)
+    }
+    document.getElementsByTagName('button')[0].onclick = function() {
+        location.href = './00js.html'
+    }
+</script>
+
+</html>

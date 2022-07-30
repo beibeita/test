@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回到首页</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body div {
+            height: 1200px;
+        }
+        
+        .title {
+            font-size: 20px;
+            color: yellowgreen
+        }
+        
+        .backBtn {
+            width: 50px;
+            height: 50px;
+            background-color: gray;
+            position: fixed;
+            bottom: 100px;
+            right: 50px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="title">回到首页</div>
+        <div class="backBtn">回到首页</div>
+    </div>
+</body>
+<script>
+    const btn = document.getElementsByClassName('backBtn')[0]
+    window.onscroll = function() {
+        const res = document.documentElement.scrollTop || document.body.scrollTop
+        btn.style.display = 'none'
+        if (res > 400) {
+            btn.style.display = 'block'
+        }
+
+    }
+    btn.onclick = () => {
+        document.documentElement.scrollTop = 0
+        document.body.scrollTop = 0
+
+    }
+</script>
+
+
+</html>

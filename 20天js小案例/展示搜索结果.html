@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>展示搜索结果</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .show {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+            display: none;
+        }
+        
+        input[type='text'] {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div><input type="text"><input type="button" value="提交"></div>
+    <div class="show">
+
+    </div>
+
+</body>
+<script>
+    const arr = ['abccc', 'safsaf', 'sdfswrwqer', 'asf']
+    const input = document.getElementsByTagName('input');
+    const textInput = input[0]
+
+    textInput.onkeydown = () => {
+        let str = ''
+        arr.forEach((item) => {
+            console.log(item.includes(textInput.value), item, textInput.value);
+            if (item.includes(textInput.value)) {
+                str += `<p>${item}</p>`
+            }
+        })
+        document.getElementsByClassName('show')[0].style.display = 'block'
+
+        if (!textInput.value || !str) {
+            document.getElementsByClassName('show')[0].innerHTML = '无数据'
+            return
+        }
+        document.getElementsByClassName('show')[0].innerHTML = str
+
+
+    }
+    textInput.onblur = () => {
+        document.getElementsByClassName('show')[0].style.display = 'none'
+        textInput.value = ''
+    }
+</script>
+
+
+
+</html>
