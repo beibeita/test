@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>heart_transform</title>
+    <style>
+        body{
+            margin:0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: yellow;
+            font-size: 10px;
+        }
+        .heart{
+            width: 11em;
+            height: 10em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* position: relative;  */
+        }
+        .heart div{
+            width: 1em;
+            height: 8em;
+            background-color: orange;
+            position: relative;
+        }
+        .line5{
+            top:2.5em;
+        }
+        .line4,.line6{
+            top:1.5em;
+        }
+        .line2, .line8{
+            top:1em;
+        }
+        .line1,.line9{
+            top:2em;
+        }
+        .heart div{
+            transform-origin: top;
+        }
+        .line1,.line9{
+            transform: scaleY(0.5);
+        }
+        .line2,.line8{
+            transform: scaleY(0.8);
+        }
+    </style>
+</head>
+<body>
+    <figure class="heart">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+        <div class="line4"></div>
+        <div class="line5"></div>
+        <div class="line6"></div>
+        <div class="line7"></div>
+        <div class="line8"></div>
+        <div class="line9"></div>
+    </figure>
+</body>
+</html>

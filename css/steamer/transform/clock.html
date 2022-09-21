@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lock</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #000;
+        color: green;
+      }
+      .clock {
+        width: 20em;
+        height: 20em;
+        border-radius: 50%;
+        border: 1em solid;
+        position: relative;
+        background: radial-gradient(currentColor 10%, transparent 11%);
+      }
+      .hand {
+        width: 1em;
+        height: 5em;
+        position: absolute;
+        background-color: currentColor;
+        left: calc((100% - 1em) / 2);
+        transform-origin: bottom;
+        border-radius: 100%/10%;
+
+
+
+      }
+      .hour{
+        height:5em;
+        top:calc((100%)/2 - 5em);
+        transform: rotate(45deg);
+      }
+      .minute{
+        height: 8em;
+        top:calc((100%)/2 - 8em);
+      }
+    </style>
+  </head>
+  <body>
+    <figure class="clock">
+      <div class="hand hour"></div>
+      <div class="hand minute"></div>
+    </figure>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: tomato;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+}
+
+.steamer {
+  width: 30em;
+  height: 30em;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.pot {
+  width: 16em;
+  height: 12em;
+  background-color: darkslateblue;
+  border-radius: 0.5em 0.5em 6.5em 6.5em;
+  border-right: 1.5em solid midnightblue;
+  position: relative;
+}
+.pot::before {
+  content: "";
+  position: absolute;
+  width: 27em;
+  height: 3em;
+  background-color: tomato;
+  border-radius: 2em;
+  top: 2em;
+  left: calc((16em + 1.5em - 27em) / 2);
+  z-index: -1;
+}
+.steamer {
+  z-index: 1;
+}
+.lid {
+  width: 17em;
+  height: 6em;
+  background-color: gold;
+  border-radius: 6em 6em 0 0;
+  border-right: 1.5em solid goldenrod;
+  border-bottom: 1.2em solid goldenrod;
+  top:0.5em;
+  z-index: 1;
+  position: relative;
+}
+.lid::before{
+    content:'';
+    position:absolute;
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    background-color: tomato;
+    top: -2.5em;
+    left:calc((17em + 1.5em - 4em)/2);
+
+}
+.pot::after{
+    content:'';
+    position:absolute;
+    width:8em;
+    height:8em;
+    border: 0.6em solid white;
+    border-color: transparent transparent white transparent;
+    border-radius: 50%;
+    transform: rotate(30deg);
+    top:1em;
+    left:2em;
+}
+
+.lid::after{
+    content:'';
+    position: absolute;
+    border: 0.6em solid white;
+    width: 7em;
+    height: 7em;
+    border-radius: 50%;
+    border-color: transparent transparent transparent white;
+    left:2.5em;
+    top:1em;
+    transform: rotate(40deg);
+}

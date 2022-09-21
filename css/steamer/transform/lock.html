@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lock</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: pink;
+        background-color: antiquewhite;
+        font-size: 10px;
+      }
+      .lock {
+        width: 20em;
+        height: 14em;
+        background-color: currentColor;
+        position: relative;
+      }
+      .lock::before {
+        content: "";
+        position: absolute;
+        width: 14em;
+        height: 12em;
+        left: calc((100% - 14em) / 2);
+        box-sizing: border-box;
+        border: 2em solid;
+        border-width: 2em 2em 0 2em;
+        border-radius: 50% 50% 0 0;
+        /* border-color: currentColor; */
+        top: -12em;
+
+        transform-origin: 1em;
+        transform: rotateY(180deg);
+      }
+      .lock::after {
+        content: "";
+        position: absolute;
+        width: 4em;
+        height: 5em;
+        background-color: #fff;
+        border-radius: 50%/30%;
+        left:calc((100% - 4em)/2);
+        top:calc((100% - 5em)/2)
+      }
+    </style>
+  </head>
+  <body>
+    <figure>
+      <div class="lock"></div>
+    </figure>
+  </body>
+</html>
